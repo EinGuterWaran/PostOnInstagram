@@ -1,4 +1,3 @@
-import os
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.chrome.options import Options
@@ -36,15 +35,11 @@ def post(ig_username, ig_pw, image_path, caption):
     time.sleep(10)
     driver.get('https://www.instagram.com/' + ig_username)
 
-    dir_path = os.path.abspath(__file__)
-    dir_path = os.path.dirname(dir_path) + "\\" + image_path
-    # "\\tweet_images\example.jpg"
-
     ActionChains(driver).move_to_element(driver.find_element_by_xpath(
         """//*[@id="react-root"]/section/nav[2]/div/div/div[2]/div/div/div[3]""")).click().perform()
     handle = "[CLASS:#32770; TITLE:Öffnen]"
     autoit.win_wait(handle, 3)
-    autoit.control_set_text(handle, "Edit1", dir_path)
+    autoit.control_set_text(handle, "Edit1", image_path)
     autoit.control_click(handle, "Button1")
 
     time.sleep(5)
