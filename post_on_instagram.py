@@ -33,7 +33,7 @@ def post(ig_username, ig_pw, image_path, caption):
     driver.find_element_by_xpath("//*[@id='react-root']/section/main/div/div/div/div/form/div/div[6]/button/div")\
         .click()
 
-    time.sleep(4)
+    time.sleep(10)
     driver.get('https://www.instagram.com/' + ig_username)
 
     dir_path = os.path.abspath(__file__)
@@ -47,17 +47,17 @@ def post(ig_username, ig_pw, image_path, caption):
     autoit.control_set_text(handle, "Edit1", dir_path)
     autoit.control_click(handle, "Button1")
 
-    time.sleep(2)
+    time.sleep(5)
 
     driver.find_element_by_xpath("""//*[@id="react-root"]/section/div[1]/header/div/div[2]/button""").click()
 
-    time.sleep(2)
+    time.sleep(5)
 
     txt = driver.find_element_by_class_name('_472V_')
     txt.send_keys('')
     txt = driver.find_element_by_class_name('_472V_')
     txt.send_keys(caption)  # Description
     txt.send_keys(Keys.ENTER)
-    time.sleep(2)
+    time.sleep(5)
     driver.find_element_by_xpath("""//*[@id="react-root"]/section/div[1]/header/div/div[2]/button""").click()
     time.sleep(10)
